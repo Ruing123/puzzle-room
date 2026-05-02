@@ -682,7 +682,7 @@ canvas.addEventListener('mousedown', (e) => {
     selectedObject = obj;
     isDragging = true;
     dragOffsetX = mx - obj.x;
-    dragOffsetY = mx - obj.y;
+    dragOffsetY = my - obj.y;
   }
 });
 
