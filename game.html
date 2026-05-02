@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE PUZZLE ROOM</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+  <div id="game-container">
+    <header class="game-header">
+      <span class="room-indicator">КОМНАТА <span id="room-number">1</span>/3</span>
+      <div class="nav-buttons">
+        <button id="btn-back" class="nav-btn">←</button>
+        <button id="btn-forward" class="nav-btn">→</button>
+      </div>
+    </header>
+
+    <main class="game-area">
+      <canvas id="game-canvas"></canvas>
+    </main>
+
+    <section class="objects-panel" id="objects-panel">
+      <!-- Объекты генерируются JS -->
+    </section>
+
+    <section class="keypad-section">
+      <div class="keypad">
+        <div class="keypad-display" id="keypad-display">_ _ _</div>
+        <div class="keypad-grid" id="keypad-grid">
+          <button class="key">A</button>
+          <button class="key">B</button>
+          <button class="key">C</button>
+          <button class="key">D</button>
+          <button class="key">E</button>
+          <button class="key">F</button>
+          <button class="key">G</button>
+          <button class="key">H</button>
+          <button class="key">I</button>
+        </div>
+        <div class="keypad-controls">
+          <button id="btn-clear" class="keypad-btn">C</button>
+          <button id="btn-submit" class="keypad-btn">OK</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <p id="modal-text"></p>
+      <button id="modal-close">OK</button>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

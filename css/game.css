@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --fg: #f0f0f0;
+  --accent: #666;
+  --border: #222;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+}
+
+#game-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.room-indicator {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  border-color: var(--fg);
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.game-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#game-canvas {
+  background: #111;
+  border: 1px solid var(--border);
+  max-width: 100%;
+}
+
+.objects-panel {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  min-height: 60px;
+  flex-wrap: wrap;
+}
+
+.object-item {
+  width: 50px;
+  height: 50px;
+  background: #151515;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  font-size: 0.7rem;
+  color: var(--accent);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.object-item:hover {
+  border-color: var(--fg);
+}
+
+.object-item.selected {
+  border-color: var(--fg);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.object-item.placed {
+  opacity: 0.5;
+}
+
+.keypad-section {
+  display: flex;
+  justify-content: center;
+}
+
+.keypad {
+  background: #111;
+  border: 1px solid var(--border);
+  padding: 15px;
+}
+
+.keypad-display {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.5em;
+  padding: 10px;
+  margin-bottom: 15px;
+  min-height: 50px;
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+}
+
+.keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.key {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.key:hover {
+  background: #222;
+}
+
+.key:active {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.keypad-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.keypad-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.keypad-btn:hover {
+  border-color: var(--fg);
+}
+
+.keypad-btn:active {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #111;
+  border: 1px solid var(--border);
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.modal-content button {
+  background: transparent;
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  padding: 15px 40px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  transition: all 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+@media (max-width: 500px) {
+  #game-canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  .object-item {
+    width: 40px;
+    height: 40px;
+    font-size: 0.6rem;
+  }
+}
